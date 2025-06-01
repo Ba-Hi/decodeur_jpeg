@@ -1,0 +1,896 @@
+--------------------------------------------------------------------------------
+Profile data file 'callgrind.out.474723' (creator: callgrind-3.22.0)
+--------------------------------------------------------------------------------
+I1 cache: 
+D1 cache: 
+LL cache: 
+Timerange: Basic block 0 - 31001934
+Trigger: Program termination
+Profiled target:  ./jpeg2ppm images/gris.jpg (PID 474723, part 1)
+Events recorded:  Ir
+Events shown:     Ir
+Event sort order: Ir
+Thresholds:       99
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+Ir                   
+--------------------------------------------------------------------------------
+219,075,365 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                   file:function
+--------------------------------------------------------------------------------
+31,018,245 (14.16%)  ./malloc/./malloc/malloc.c:_int_free [/usr/lib/x86_64-linux-gnu/libc.so.6]
+19,595,387 ( 8.94%)  src/traiter_image_noir_blanc.c:traiter_image_noir_blanc [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+19,113,767 ( 8.72%)  ./malloc/./malloc/malloc.c:malloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+17,334,735 ( 7.91%)  src/bitstream.c:read_bitstream [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+15,238,086 ( 6.96%)  src/idct_rapide.c:idct_loeffler_2d [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+13,652,226 ( 6.23%)  ./gmon/../sysdeps/x86_64/_mcount.S:mcount [/usr/lib/x86_64-linux-gnu/libc.so.6]
+12,467,076 ( 5.69%)  ./malloc/./malloc/malloc.c:free [/usr/lib/x86_64-linux-gnu/libc.so.6]
+11,059,200 ( 5.05%)  src/idct_rapide.c:loeffler_idct_1d [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+10,229,360 ( 4.67%)  ./malloc/./malloc/malloc.c:_int_malloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 6,702,400 ( 3.06%)  src/YCbCr_2_RGB_nb.c:convert_ycbcr_2_rgb_noir_et_blanc [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 6,144,000 ( 2.80%)  src/idct_rapide.c:butterfly [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 5,017,600 ( 2.29%)  ./math/../sysdeps/ieee754/dbl-64/s_sin.c:__sin_fma [/usr/lib/x86_64-linux-gnu/libm.so.6]
+ 4,966,400 ( 2.27%)  ./math/../sysdeps/ieee754/dbl-64/s_sin.c:__cos_fma [/usr/lib/x86_64-linux-gnu/libm.so.6]
+ 4,748,800 ( 2.17%)  src/idct_rapide.c:transposee_matrice [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 4,506,252 ( 2.06%)  src/huffman_decodage.c:decoder_valeur_huffman [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 3,999,591 ( 1.83%)  src/ecrire_ppm.c:ecrire_image_pgm [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 3,900,636 ( 1.78%)  ./gmon/./gmon/mcount.c:__mcount_internal [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 3,840,000 ( 1.75%)  src/idct_rapide.c:inverse_rotation [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 3,712,000 ( 1.69%)  src/traiter_image_noir_blanc.c:liberer_bloc_triple_int16 [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 2,806,400 ( 1.28%)  src/zz_inverse.c:zigzagInverse [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 2,696,507 ( 1.23%)  src/huffman_decodage.c:decoder_bloc [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 2,587,200 ( 1.18%)  src/quantification_inverse.c:quantification_inverse [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 2,457,575 ( 1.12%)  ./libio/./libio/fputc.c:fputc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 2,146,381 ( 0.98%)  ./math/../sysdeps/ieee754/dbl-64/s_round.c:round [/usr/lib/x86_64-linux-gnu/libm.so.6]
+ 1,839,637 ( 0.84%)  src/huffman_decodage.c:lire_valeur_reelle [/home/hanini/Projet_JPEG/team11/jpeg2ppm]
+ 1,335,750 ( 0.61%)  ./malloc/./malloc/arena.c:free
+   890,496 ( 0.41%)  ???:0x0000000000109230 [???]
+   890,496 ( 0.41%)  ???:0x00000000001093a0 [???]
+   768,000 ( 0.35%)  ./math/../sysdeps/x86/fpu/fenv_private.h:__cos_fma
+   768,000 ( 0.35%)  ./math/../sysdeps/x86/fpu/fenv_private.h:__sin_fma
+   578,953 ( 0.26%)  ./libio/./libio/getc.c:getc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/YCbCr_2_RGB_nb.c
+--------------------------------------------------------------------------------
+Ir                 
+
+        .           #include <stdio.h>
+        .           #include <stdlib.h>
+        .           #include "YCbCr_2_RGB_nb.h"
+        .           
+        .           /*Ici, on convertira uniquement la composante Y en RGB. On ne prend pas en compte les composantes Cb et Cr*/
+   12,800 ( 0.01%)  Pixel **convert_ycbcr_2_rgb_noir_et_blanc(float **bloc_Y, int hauteur){
+   43,200 ( 0.02%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1,600x)
+    3,200 ( 0.00%)      int largeur = hauteur;
+        .           
+    3,200 ( 0.00%)      if (!bloc_Y){
+        .                   fprintf(stderr,"Erreur : bloc vide\n");
+        .                   return NULL;
+        .               }
+        .           
+    9,600 ( 0.00%)      Pixel **RGB = malloc(hauteur*sizeof(Pixel *));
+   75,200 ( 0.03%)  => ???:0x00000000001093a0 (1,600x)
+    3,200 ( 0.00%)      if (!RGB){
+        .                   fprintf(stderr,"Erreur : allocation impossible\n");
+        .                   return NULL;
+        .               }
+        .           
+   59,200 ( 0.03%)      for (int i = 0; i < hauteur; i++){
+  192,000 ( 0.09%)          RGB[i] = malloc(largeur*sizeof(Pixel));
+  732,279 ( 0.33%)  => ???:0x00000000001093a0 (12,800x)
+  473,600 ( 0.22%)          for (int j = 0; j < largeur; j++){
+        .           
+1,331,200 ( 0.61%)              uint8_t y = (uint8_t)(bloc_Y[i][j]);
+1,536,000 ( 0.70%)              RGB[i][j].r = y;
+1,536,000 ( 0.70%)              RGB[i][j].g = y;
+1,536,000 ( 0.70%)              RGB[i][j].b = y;
+        .                   }
+        .               }
+    1,600 ( 0.00%)      return RGB;
+    4,800 ( 0.00%)  }
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/ecrire_ppm.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 42 ----------------------------------------
+        .                       }
+        .                   }
+        .                   
+        .               }
+        .           
+        .               fclose(f);
+        .           }
+        .           
+        9 ( 0.00%)  void ecrire_image_pgm(const char *nom_fichier, Pixel **image, int largeur, int hauteur) {
+       27 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1x)
+        .               
+        .               
+        6 ( 0.00%)      FILE *f = fopen(nom_fichier, "wb");
+      484 ( 0.00%)  => ???:0x00000000001093d0 (1x)
+        2 ( 0.00%)      if (!f) {
+        .                   perror("Erreur ouverture fichier PPM");
+        .                   return;
+        .               }
+        .           
+        7 ( 0.00%)      fprintf(f, "P5\n%d %d\n255\n", largeur, hauteur);
+    1,512 ( 0.00%)  => ???:0x0000000000109350 (1x)
+        .           
+        .               // Vérifier que l'image n'est pas NULL
+        2 ( 0.00%)      if (!image) {
+        .                   printf("ERREUR: Pointeur image NULL!\n");
+        .                   fclose(f);
+        .                   return;
+        .               }
+        .           
+    1,285 ( 0.00%)      for (int y = 0; y < hauteur; y++) {
+        .                   // Vérifier que la ligne n'est pas NULL
+    2,560 ( 0.00%)          if (!image[y]) {
+        .                       printf("ERREUR: Ligne %d est NULL!\n", y);
+        .                       fclose(f);
+        .                       return;
+        .                   }
+  411,200 ( 0.19%)          for (int x = 0; x < largeur; x++) {
+        .                       // Écrire les valeurs RGB
+1,843,200 ( 0.84%)              fputc(image[y][x].r, f);
+2,666,675 ( 1.22%)  => ???:0x0000000000109320 (102,400x)
+        .                       
+        .                       // Vérifier si on a écrit correctement (tous les 1000 pixels pour ne pas ralentir)
+1,740,800 ( 0.79%)              if ((y * largeur + x) % 1000 == 0) {
+      515 ( 0.00%)                  if (ferror(f)) {
+      927 ( 0.00%)  => ???:0x0000000000109290 (103x)
+        .                               printf("ERREUR d'écriture à la position (%d,%d)\n", x, y);
+        .                               clearerr(f);
+        .                           }
+        .                       }
+        .                   }
+        .                   
+        .               }
+        .           
+        3 ( 0.00%)      fclose(f);
+      688 ( 0.00%)  => ???:0x00000000001092a0 (1x)
+        2 ( 0.00%)  }
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/quantification_inverse.c
+--------------------------------------------------------------------------------
+Ir                 
+
+        .           #include <stdio.h>
+        .           #include <stdlib.h>
+        .           #include <stdint.h>
+        .           #include <string.h>
+        .           
+   11,200 ( 0.01%)  void quantification_inverse(float vecteur[64], uint16_t* quant_table) {
+   43,200 ( 0.02%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1,600x)
+    3,200 ( 0.00%)      if (quant_table == NULL) {
+        .                   fprintf(stderr, "Erreur : la table de quantification est NULL\n");
+        .                   exit(EXIT_FAILURE);
+        .               }
+  313,600 ( 0.14%)      for (int i = 0; i < 64; i++) {
+2,252,800 ( 1.03%)          vecteur[i] *= quant_table[i];
+        .               }
+    6,400 ( 0.00%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/zz_inverse.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 10 ----------------------------------------
+        .           * Transforme le vecteur de 64 éléments en bloc 8 par 8 zig zag 
+        .           * Entrée: 
+        .           *   vecteur: vecteur de 64 éléments
+        .           *   bloc: bloc 8 par 8 (vide en entrée)
+        .           * Sortie:
+        .           *   bloc avec valeur du vecteur après le zigzag
+        .           */
+        .           
+   16,000 ( 0.01%)  void zigzagInverse(float vecteur[64], float bloc[8][8] /* toujours bloc vide en entré */) {
+   43,200 ( 0.02%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1,600x)
+  112,000 ( 0.05%)      Coord zigzag[64] = {
+        .                   {0,0}, {0,1}, {1,0}, {2,0}, {1,1}, {0,2}, {0,3}, {1,2},
+        .                   {2,1}, {3,0}, {4,0}, {3,1}, {2,2}, {1,3}, {0,4}, {0,5},
+        .                   {1,4}, {2,3}, {3,2}, {4,1}, {5,0}, {6,0}, {5,1}, {4,2},
+        .                   {3,3}, {2,4}, {1,5}, {0,6}, {0,7}, {1,6}, {2,5}, {3,4},
+        .                   {4,3}, {5,2}, {6,1}, {7,0}, {7,1}, {6,2}, {5,3}, {4,4},
+        .                   {3,5}, {2,6}, {1,7}, {2,7}, {3,6}, {4,5}, {5,4}, {6,3},
+        .                   {7,2}, {7,3}, {6,4}, {5,5}, {4,6}, {3,7}, {4,7}, {5,6},
+        .                   {6,5}, {7,4}, {7,5}, {6,6}, {5,7}, {6,7}, {7,6}, {7,7}
+        .               };
+        .           
+        .           
+  313,600 ( 0.14%)      for (int i = 0; i < 64; i++) {
+  409,600 ( 0.19%)          Coord pos = zigzag[i];
+  204,800 ( 0.09%)          int row = pos.x;
+  204,800 ( 0.09%)          int col = pos.y;
+1,536,000 ( 0.70%)          bloc[row][col] = vecteur[i];
+        .               }
+    9,600 ( 0.00%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/bitstream.c
+--------------------------------------------------------------------------------
+Ir                 
+
+        .           #include "../include/bitstream.h"
+        .           #include <stdlib.h>
+        .           #include <string.h>
+        .           
+        .           // Initialise le flux de bits
+        7 ( 0.00%)  bitstream_t* create_bitstream(uint8_t *data, size_t size) {
+       27 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1x)
+        3 ( 0.00%)      bitstream_t *stream = malloc(sizeof(bitstream_t));
+      352 ( 0.00%)  => ???:0x00000000001093a0 (1x)
+        2 ( 0.00%)      if (!stream) return NULL;
+        .           
+        6 ( 0.00%)      stream->data = malloc(size);
+      262 ( 0.00%)  => ???:0x00000000001093a0 (1x)
+        4 ( 0.00%)      if (!stream->data) {
+        .                   free(stream);
+        .                   return NULL;
+        .               }
+        .           
+        7 ( 0.00%)      memcpy(stream->data, data, size);
+   28,644 ( 0.01%)  => ???:0x0000000000109380 (1x)
+        3 ( 0.00%)      stream->size = size;
+        2 ( 0.00%)      stream->byte_pos = 0;
+        2 ( 0.00%)      stream->bit_pos = 0;
+        .           
+        1 ( 0.00%)      return stream;
+        2 ( 0.00%)  }
+        .           
+        .           // Libère le flux
+        6 ( 0.00%)  void free_bitstream(struct bitstream *stream) {
+       27 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1x)
+        2 ( 0.00%)      if (stream) {
+        4 ( 0.00%)          free(stream->data);
+      197 ( 0.00%)  => ???:0x0000000000109230 (1x)
+        3 ( 0.00%)          free(stream);
+       87 ( 0.00%)  => ???:0x0000000000109230 (1x)
+        .               }
+        3 ( 0.00%)  }
+        .           
+        .           
+        .           // Lit nbits bits du flux
+2,096,765 ( 0.96%)  int read_bitstream(bitstream_t *stream, uint8_t nbits, uint32_t *result, bool peek) {
+5,146,605 ( 2.35%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (190,615x)
+        .               
+1,143,690 ( 0.52%)      if (!stream || !result || nbits > 32) return -1;
+        .           
+  571,845 ( 0.26%)      size_t byte_pos_backup = stream->byte_pos;
+  571,845 ( 0.26%)      uint8_t bit_pos_backup = stream->bit_pos;
+        .           
+  190,615 ( 0.09%)      uint32_t val = 0;
+2,327,825 ( 1.06%)      for (uint8_t i = 0; i < nbits; i++) {
+1,374,750 ( 0.63%)          if (stream->byte_pos >= stream->size) return -1;
+        .           
+1,603,875 ( 0.73%)          uint8_t byte = stream->data[stream->byte_pos];
+2,520,375 ( 1.15%)          uint8_t bit = (byte >> (7 - stream->bit_pos)) & 1;
+1,145,625 ( 0.52%)          val = (val << 1) | bit;
+        .           
+1,145,625 ( 0.52%)          stream->bit_pos++;
+  916,500 ( 0.42%)          if (stream->bit_pos >= 8) {
+   57,280 ( 0.03%)              stream->bit_pos = 0;
+  143,200 ( 0.07%)              stream->byte_pos++;
+        .                   }
+        .               }
+        .           
+  381,230 ( 0.17%)      if (peek) {
+        .                   stream->byte_pos = byte_pos_backup;
+        .                   stream->bit_pos = bit_pos_backup;
+        .               }
+        .           
+  571,845 ( 0.26%)      *result = val;
+  190,615 ( 0.09%)      return nbits;
+  381,230 ( 0.17%)  }
+        .           
+        .           
+        .           /* Pour gérer le restart */
+        .           // void bitstream_align_to_next_byte(struct bitstream *stream) {
+        .           //     if (stream->bit_pos != 0) {
+        .           //         stream->byte_pos++;
+        .           //         stream->bit_pos = 0;
+        .           //     }
+-- line 71 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/traiter_image_noir_blanc.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 11 ----------------------------------------
+        .           #include "idct.h"
+        .           #include "idct_rapide.h"
+        .           #include "YCbCr_2_RGB_nb.h"
+        .           #include "ecrire_ppm.h"
+        .           #include "extraire_bloc.h"
+        .           #include "up_sampling.h"
+        .           #include "reassembler_mcus.h"
+        .           
+   19,200 ( 0.01%)  void liberer_bloc_triple_int16(uint8_t ***bloc) {
+   86,400 ( 0.04%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (3,200x)
+   89,600 ( 0.04%)      for (int i = 0; i < 8; i++) {
+  716,800 ( 0.33%)          for (int j = 0; j < 8; j++) {
+2,662,400 ( 1.22%)              free(bloc[i][j]);
+22,118,400 (10.10%)  => ???:0x0000000000109230 (204,800x)
+        .                   }
+  204,800 ( 0.09%)          free(bloc[i]);
+2,764,800 ( 1.26%)  => ???:0x0000000000109230 (25,600x)
+        .               }
+    9,600 ( 0.00%)      free(bloc);
+  345,600 ( 0.16%)  => ???:0x0000000000109230 (3,200x)
+    9,600 ( 0.00%)  }
+        .           
+       13 ( 0.00%)  void traiter_image_noir_blanc(metadonnees_jpeg_t *meta, char *nom_image, uint8_t use_loeffler){
+       27 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1x)
+        .           
+        .               /*Calcul du nombre de blocs de Y*/
+        9 ( 0.00%)      uint32_t nb_blocs_horizontal_Y = (meta->largeur + 7) / 8;
+        9 ( 0.00%)      uint32_t nb_blocs_vertical_Y   = (meta->hauteur + 7) / 8;
+        3 ( 0.00%)      uint32_t nb_blocs_Y            = nb_blocs_horizontal_Y * nb_blocs_vertical_Y;
+        .           
+        .               /*On extrait les blocs Y*/
+        7 ( 0.00%)      float **blocs_Y = extraire_blocs_y_noir_et_blanc(meta->stream, meta);
+34,305,932 (15.66%)  => /home/hanini/Projet_JPEG/team11/src/extraire_bloc.c:extraire_blocs_y_noir_et_blanc (1x)
+        2 ( 0.00%)      if (!blocs_Y) {
+        .                   fprintf(stderr, "Erreur lors de l'extraction des blocs Y.\n");
+        .                   return;
+        .               }
+        .           
+        .               /*Maintenant qu'on a les blocs_Y extraits, on va appliquer sur chacun :
+        .               -Quantification inverse
+        .               -Zigzag inverse
+        .               -iDCT*/
+        .           
+        .               /*Allocation de l'image RGB*/
+        .               typedef Pixel BlocRGB[8][8];
+        8 ( 0.00%)      Pixel (*image_rgb)[8][8] = malloc(sizeof(BlocRGB) * nb_blocs_Y);
+    9,057 ( 0.00%)  => ???:0x00000000001093a0 (1x)
+        2 ( 0.00%)      if (!image_rgb) {
+        .                   fprintf(stderr, "Erreur allocation image_rgb\n");
+        .                   return;
+        .               }
+        .           
+    6,405 ( 0.00%)      for (uint32_t bloc = 0; bloc < nb_blocs_Y; bloc++) {
+        .                   /*Quantification Inverse de chaque élément dans blocs_y*/
+   16,000 ( 0.01%)          quantification_inverse(blocs_Y[bloc], meta->tables_quantif[0]);
+2,630,400 ( 1.20%)  => /home/hanini/Projet_JPEG/team11/src/quantification_inverse.c:quantification_inverse (1,600x)
+        .           
+        .                   /*zz inverse de chaque element dans blocs_y*/
+        .                   float bloc_dequant[8][8];
+   14,400 ( 0.01%)          zigzagInverse(blocs_Y[bloc], bloc_dequant);
+2,849,600 ( 1.30%)  => /home/hanini/Projet_JPEG/team11/src/zz_inverse.c:zigzagInverse (1,600x)
+        .           
+        .                   
+        .                   /*iDCT*/
+        .                   float bloc_Y_idct[8][8];
+    3,200 ( 0.00%)          if (use_loeffler) {
+    4,800 ( 0.00%)              int16_t ***int_bloc_dequant = malloc(8 * sizeof(int16_t **));
+   75,377 ( 0.03%)  => ???:0x00000000001093a0 (1,600x)
+    4,800 ( 0.00%)              uint8_t ***uint_bloc_result = malloc(8 * sizeof(uint8_t **));
+   75,513 ( 0.03%)  => ???:0x00000000001093a0 (1,600x)
+   44,800 ( 0.02%)              for (int i = 0; i < 8; i++) {
+  102,400 ( 0.05%)                  int_bloc_dequant[i] = malloc(8 * sizeof(int16_t *));
+  602,714 ( 0.28%)  => ???:0x00000000001093a0 (12,800x)
+  102,400 ( 0.05%)                  uint_bloc_result[i] = malloc(8 * sizeof(uint8_t *));
+1,367,147 ( 0.62%)  => ???:0x00000000001093a0 (12,800x)
+  358,400 ( 0.16%)                  for (int j = 0; j < 8; j++) {
+1,331,200 ( 0.61%)                      int_bloc_dequant[i][j] = malloc(sizeof(int16_t));
+4,513,798 ( 2.06%)  => ???:0x00000000001093a0 (102,400x)
+1,331,200 ( 0.61%)                      uint_bloc_result[i][j] = malloc(sizeof(uint8_t));
+10,551,796 ( 4.82%)  => ???:0x00000000001093a0 (102,400x)
+2,048,000 ( 0.93%)                      *int_bloc_dequant[i][j] = (int16_t)bloc_dequant[i][j];
+        .                           }
+        .                       }
+    8,000 ( 0.00%)              idct_loeffler_2d(int_bloc_dequant, uint_bloc_result);
+95,783,624 (43.72%)  => /home/hanini/Projet_JPEG/team11/src/idct_rapide.c:idct_loeffler_2d (1,600x)
+   44,800 ( 0.02%)              for (int i = 0; i < 8; i++) {
+  358,400 ( 0.16%)                  for (int j = 0; j < 8; j++) {
+2,252,800 ( 1.03%)                      bloc_Y_idct[i][j] = (float)*uint_bloc_result[i][j];
+        .                           }
+        .                       }
+        .           
+    4,800 ( 0.00%)              liberer_bloc_triple_int16(uint_bloc_result);
+14,513,600 ( 6.62%)  => src/traiter_image_noir_blanc.c:liberer_bloc_triple_int16 (1,600x)
+    6,400 ( 0.00%)              liberer_bloc_triple_int16((uint8_t ***) int_bloc_dequant);
+14,513,600 ( 6.62%)  => src/traiter_image_noir_blanc.c:liberer_bloc_triple_int16 (1,600x)
+        .                       
+        .                   } else {
+        .                       idct_8x8(bloc_dequant, bloc_Y_idct);
+        .                   }
+        .           
+        .           
+    4,800 ( 0.00%)          float **bloc_Y_ptr = malloc(8 * sizeof(float*));
+   75,200 ( 0.03%)  => ???:0x00000000001093a0 (1,600x)
+  185,600 ( 0.08%)              for (int i = 0; i < 8; i++) bloc_Y_ptr[i] = bloc_Y_idct[i];  // pointeurs sur les lignes
+        .           
+        .                   /*Conversion et affichage*/
+    8,000 ( 0.00%)          Pixel **rgb = convert_ycbcr_2_rgb_noir_et_blanc(bloc_Y_ptr, 8);
+7,553,079 ( 3.45%)  => /home/hanini/Projet_JPEG/team11/src/YCbCr_2_RGB_nb.c:convert_ycbcr_2_rgb_noir_et_blanc (1,600x)
+        .           
+   44,800 ( 0.02%)          for (int j = 0; j < 8; j++) {
+  358,400 ( 0.16%)                  for (int k = 0; k < 8; k++) {
+        .                               /*pixel j,k dans le bloc i, remplir avec rgb*/
+4,096,000 ( 1.87%)                      image_rgb[bloc][j][k] = rgb[j][k]; 
+        .                           }
+        .                       }
+        .           
+        .           
+    4,800 ( 0.00%)          free(bloc_Y_ptr);
+  139,200 ( 0.06%)  => ???:0x0000000000109230 (1,600x)
+   44,800 ( 0.02%)          for (int l = 0; l < 8; l++) {
+  102,400 ( 0.05%)              free(rgb[l]);
+1,144,000 ( 0.52%)  => ???:0x0000000000109230 (12,800x)
+        .                   }
+    4,800 ( 0.00%)          free(rgb);
+  139,200 ( 0.06%)  => ???:0x0000000000109230 (1,600x)
+        .                   
+        .               }
+        .           
+        .               /*Concaténation des blocs 8x8 et image finale*/
+        7 ( 0.00%)      Pixel **image_finale = malloc(sizeof(Pixel*) * meta->hauteur);
+   16,524 ( 0.01%)  => ???:0x00000000001093a0 (1x)
+        2 ( 0.00%)      if (!image_finale) {
+        .               fprintf(stderr, "Erreur allocation image_finale\n");
+        .               free(image_rgb);
+        .               return;
+        .               }
+    1,927 ( 0.00%)      for (int i = 0; i < meta->hauteur; i++) {
+    5,120 ( 0.00%)          image_finale[i] = malloc(sizeof(Pixel) * meta->largeur);
+   57,021 ( 0.03%)  => ???:0x00000000001093a0 (320x)
+    2,560 ( 0.00%)          if (!image_finale[i]) {
+        .                       fprintf(stderr, "Erreur allocation ligne image_finale[%d]\n", i);
+        .                       // libération partielle ici si tu veux être ultra rigoureuse
+        .                       return;
+        .                   }
+        .               }
+        .           
+        2 ( 0.00%)      int blocs_par_ligne = nb_blocs_horizontal_Y;
+        .           
+      165 ( 0.00%)      for (uint32_t bloc_y = 0; bloc_y < nb_blocs_vertical_Y; bloc_y++) {
+    6,600 ( 0.00%)          for (uint32_t bloc_x = 0; bloc_x < nb_blocs_horizontal_Y; bloc_x++) {
+    9,600 ( 0.00%)              int bloc_index = bloc_y * blocs_par_ligne + bloc_x;
+        .           
+   44,800 ( 0.02%)              for (int i = 0; i < 8; i++) {
+  358,400 ( 0.16%)                  for (int j = 0; j < 8; j++) {
+  512,000 ( 0.23%)                      int y = bloc_y * 8 + i;
+  512,000 ( 0.23%)                      int x = bloc_x * 8 + j;
+1,024,000 ( 0.47%)                      if (y < meta->hauteur && x < meta->largeur) {
+4,198,400 ( 1.92%)                          image_finale[y][x] = image_rgb[bloc_index][i][j];
+        .                               }
+        .                           }
+        .                       }
+        .                   }
+        .               }
+        .           
+        .               /*Création du nom du fichier PGM*/
+        .               char nom_pgm[256];
+        5 ( 0.00%)      char *point = strrchr(nom_image, '.');
+       24 ( 0.00%)  => ???:0x00000000001092e0 (1x)
+        2 ( 0.00%)      if (point) {
+        3 ( 0.00%)          size_t len = point - nom_image;
+        6 ( 0.00%)          strncpy(nom_pgm, nom_image, len);
+       29 ( 0.00%)  => ???:0x0000000000109250 (1x)
+        5 ( 0.00%)          nom_pgm[len] = '\0';
+        .               } else {
+        .                   strcpy(nom_pgm, nom_image);
+        .               }
+        8 ( 0.00%)      strcat(nom_pgm, ".pgm");
+       16 ( 0.00%)  => ???:0x00000000001092b0 (1x)
+        .           
+       10 ( 0.00%)      ecrire_image_pgm(nom_pgm, image_finale, meta->largeur, meta->hauteur);
+6,669,904 ( 3.04%)  => /home/hanini/Projet_JPEG/team11/src/ecrire_ppm.c:ecrire_image_pgm (1x)
+        .           
+    6,405 ( 0.00%)      for (uint32_t i = 0; i < nb_blocs_Y; i++){
+   11,200 ( 0.01%)          free(blocs_Y[i]);
+  354,546 ( 0.16%)  => ???:0x0000000000109230 (1,600x)
+        .               }
+        3 ( 0.00%)      free(blocs_Y);
+      170 ( 0.00%)  => ???:0x0000000000109230 (1x)
+    1,927 ( 0.00%)      for (int y = 0; y < meta->hauteur; y++){
+    2,560 ( 0.00%)          free(image_finale[y]);
+   68,730 ( 0.03%)  => ???:0x0000000000109230 (320x)
+        .               }
+        3 ( 0.00%)      free(image_finale);
+      166 ( 0.00%)  => ???:0x0000000000109230 (1x)
+        3 ( 0.00%)      free(image_rgb);
+       74 ( 0.00%)  => ???:0x0000000000109230 (1x)
+        6 ( 0.00%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/idct_rapide.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 4 ----------------------------------------
+        .           #include <math.h>
+        .           #include "../include/idct_rapide.h"
+        .           
+        .           #define M_PI 3.14159265358979323846
+        .           #define M_SQRT2 1.4142135623730951
+        .           #define M_SQRT8 2.8284271247461903
+        .           #define CLAMP(x) ((x) < 0 ? 0 : ((x) > 255 ? 255 : (x)))
+        .           
+2,304,000 ( 1.05%)  void butterfly(double* i0, double* i1, double o0, double o1) {
+6,912,000 ( 3.16%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (256,000x)
+1,536,000 ( 0.70%)      *i0 = (o1 + o0) / 2;
+1,536,000 ( 0.70%)      *i1 = (o0 - o1) / 2;
+  768,000 ( 0.35%)  }
+        .           
+  921,600 ( 0.42%)  void inverse_rotation(double* i0, double* i1, double o0, double o1, double k, uint16_t n) {
+2,073,600 ( 0.95%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (76,800x)
+  614,400 ( 0.28%)      const double angle = (n * M_PI) / 16;
+  384,000 ( 0.18%)      const double COS = cos(angle);
+5,888,000 ( 2.69%)  => ???:0x0000000000109310 (76,800x)
+  384,000 ( 0.18%)      const double SIN = sin(angle);
+5,939,200 ( 2.71%)  => ???:0x00000000001093f0 (76,800x)
+  614,400 ( 0.28%)      *i0 = (o0 * COS - o1 * SIN) / k;
+  691,200 ( 0.32%)      *i1 = (o1 * COS + o0 * SIN) / k;
+  230,400 ( 0.11%)  }
+        .           
+        .           void echanger(double*** vect, double*** vect2) {
+        .               double** temp = *vect;
+        .               *vect = *vect2;
+        .               *vect2 = temp;
+        .           }
+        .           
+  153,600 ( 0.07%)  void loeffler_idct_1d(double** vector) {
+  691,200 ( 0.32%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (25,600x)
+        .               
+1,126,400 ( 0.51%)      for (uint8_t i = 0; i < 8; i++) {
+2,867,200 ( 1.31%)          *vector[i] *= M_SQRT8;
+        .               }
+        .           
+   76,800 ( 0.04%)      double* vect_stage_4 = malloc(8 * sizeof(double));
+1,203,345 ( 0.55%)  => ???:0x00000000001093a0 (25,600x)
+        .           
+        .               // Stage 4
+  435,200 ( 0.20%)      butterfly(&vect_stage_4[7], &vect_stage_4[4], *vector[1], *vector[7]);
+1,305,600 ( 0.60%)  => src/idct_rapide.c:butterfly (25,600x)
+  230,400 ( 0.11%)      vect_stage_4[5] = *vector[3] / M_SQRT2;
+  230,400 ( 0.11%)      vect_stage_4[6] = *vector[5] / M_SQRT2;
+  128,000 ( 0.06%)      vect_stage_4[0] = *vector[0];
+  179,200 ( 0.08%)      vect_stage_4[1] = *vector[4];
+  179,200 ( 0.08%)      vect_stage_4[2] = *vector[2];
+  179,200 ( 0.08%)      vect_stage_4[3] = *vector[6];
+        .           
+   76,800 ( 0.04%)      double* vect_stage_3 = malloc(8 * sizeof(double));
+1,203,345 ( 0.55%)  => ???:0x00000000001093a0 (25,600x)
+        .           
+        .               // Stage 3
+  332,800 ( 0.15%)      butterfly(&vect_stage_3[0], &vect_stage_3[1], vect_stage_4[0], vect_stage_4[1]);
+1,305,600 ( 0.60%)  => src/idct_rapide.c:butterfly (25,600x)
+  384,000 ( 0.18%)      butterfly(&vect_stage_3[4], &vect_stage_3[6], vect_stage_4[4], vect_stage_4[6]);
+1,305,600 ( 0.60%)  => src/idct_rapide.c:butterfly (25,600x)
+  384,000 ( 0.18%)      butterfly(&vect_stage_3[7], &vect_stage_3[5], vect_stage_4[7], vect_stage_4[5]);
+1,305,600 ( 0.60%)  => src/idct_rapide.c:butterfly (25,600x)
+  435,200 ( 0.20%)      inverse_rotation(&vect_stage_3[2], &vect_stage_3[3], vect_stage_4[2], vect_stage_4[3], sqrt(2), 6);
+6,323,200 ( 2.89%)  => src/idct_rapide.c:inverse_rotation (25,600x)
+        .           
+   76,800 ( 0.04%)      free(vect_stage_4);
+2,227,200 ( 1.02%)  => ???:0x0000000000109230 (25,600x)
+        .           
+   76,800 ( 0.04%)      double* vect_stage_2 = malloc(8 * sizeof(double));
+1,203,200 ( 0.55%)  => ???:0x00000000001093a0 (25,600x)
+        .           
+        .               // Stage 2 inversed
+  332,800 ( 0.15%)      butterfly(&vect_stage_2[0], &vect_stage_2[3], vect_stage_3[0], vect_stage_3[3]);
+1,305,600 ( 0.60%)  => src/idct_rapide.c:butterfly (25,600x)
+  384,000 ( 0.18%)      butterfly(&vect_stage_2[1], &vect_stage_2[2], vect_stage_3[1], vect_stage_3[2]);
+1,305,600 ( 0.60%)  => src/idct_rapide.c:butterfly (25,600x)
+  435,200 ( 0.20%)      inverse_rotation(&vect_stage_2[4], &vect_stage_2[7], vect_stage_3[4], vect_stage_3[7], 1, 3);
+5,708,800 ( 2.61%)  => src/idct_rapide.c:inverse_rotation (25,600x)
+  435,200 ( 0.20%)      inverse_rotation(&vect_stage_2[5], &vect_stage_2[6], vect_stage_3[5], vect_stage_3[6], 1, 1);
+5,708,800 ( 2.61%)  => src/idct_rapide.c:inverse_rotation (25,600x)
+        .           
+   76,800 ( 0.04%)      free(vect_stage_3);
+2,227,200 ( 1.02%)  => ???:0x0000000000109230 (25,600x)
+        .           
+        .               // Stage 1 inversed
+  384,000 ( 0.18%)      butterfly(vector[0], vector[7], vect_stage_2[0], vect_stage_2[7]);
+1,305,600 ( 0.60%)  => src/idct_rapide.c:butterfly (25,600x)
+  435,200 ( 0.20%)      butterfly(vector[1], vector[6], vect_stage_2[1], vect_stage_2[6]);
+1,305,600 ( 0.60%)  => src/idct_rapide.c:butterfly (25,600x)
+  435,200 ( 0.20%)      butterfly(vector[2], vector[5], vect_stage_2[2], vect_stage_2[5]);
+1,305,600 ( 0.60%)  => src/idct_rapide.c:butterfly (25,600x)
+  435,200 ( 0.20%)      butterfly(vector[3], vector[4], vect_stage_2[3], vect_stage_2[4]);
+1,305,600 ( 0.60%)  => src/idct_rapide.c:butterfly (25,600x)
+        .           
+   76,800 ( 0.04%)      free(vect_stage_2);
+2,227,200 ( 1.02%)  => ???:0x0000000000109230 (25,600x)
+   76,800 ( 0.04%)  }
+        .           
+   19,200 ( 0.01%)  void transposee_matrice(double*** table) {
+   86,400 ( 0.04%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (3,200x)
+        .               double temp1, temp2;
+  124,800 ( 0.06%)      for (uint8_t i = 1; i < 8; i++) {
+  649,600 ( 0.30%)          for (uint8_t j = 0; j < i; j++) {
+  985,600 ( 0.45%)              temp1 = *table[i][j];
+  985,600 ( 0.45%)              temp2 = *table[j][i];
+  985,600 ( 0.45%)              *table[i][j] = temp2;
+  985,600 ( 0.45%)              *table[j][i] = temp1;
+        .                   }
+        .               }
+   12,800 ( 0.01%)  }
+        .           
+   12,800 ( 0.01%)  void idct_loeffler_2d(int16_t*** input_matrice, uint8_t*** out_matrice) {
+   43,200 ( 0.02%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1,600x)
+        .           
+    4,800 ( 0.00%)      double*** bloc_dequantif_double = malloc(8 * sizeof(double**));
+   75,345 ( 0.03%)  => ???:0x00000000001093a0 (1,600x)
+   44,800 ( 0.02%)      for (int i = 0; i < 8; i++) {
+  102,400 ( 0.05%)          bloc_dequantif_double[i] = malloc(8 * sizeof(double*));
+  916,164 ( 0.42%)  => ???:0x00000000001093a0 (12,800x)
+  358,400 ( 0.16%)          for (int j = 0; j < 8; j++) {
+1,331,200 ( 0.61%)              bloc_dequantif_double[i][j] = malloc(sizeof(double));
+7,280,958 ( 3.32%)  => ???:0x00000000001093a0 (102,400x)
+        .                   }
+        .               }
+        .           
+   70,400 ( 0.03%)      for (uint8_t i = 0; i < 8; i++) {
+  563,200 ( 0.26%)          for (uint8_t j = 0; j < 8; j++) {
+2,355,200 ( 1.08%)              *bloc_dequantif_double[i][j] = (double)*input_matrice[i][j];
+        .                   }
+        .               }
+        .           
+        .               // idct appliquée sur les lignes
+   70,400 ( 0.03%)      for (uint8_t i = 0; i < 8; i++) {
+   89,600 ( 0.04%)          loeffler_idct_1d(bloc_dequantif_double[i]);
+26,419,490 (12.06%)  => src/idct_rapide.c:loeffler_idct_1d (12,800x)
+        .               }
+        .           
+        .               // transposition de la matrice pour appliquer encore idct sur les colonnes
+    4,800 ( 0.00%)      transposee_matrice(bloc_dequantif_double);
+2,417,600 ( 1.10%)  => src/idct_rapide.c:transposee_matrice (1,600x)
+        .           
+        .               // idct appliquée sur les colonnes
+   70,400 ( 0.03%)      for (uint8_t i = 0; i < 8; i++) {
+   89,600 ( 0.04%)          loeffler_idct_1d(bloc_dequantif_double[i]);
+26,419,200 (12.06%)  => src/idct_rapide.c:loeffler_idct_1d (12,800x)
+        .               }
+        .           
+        .               // t (t A) = A, on revient à l'état initial
+    4,800 ( 0.00%)      transposee_matrice(bloc_dequantif_double);
+2,417,600 ( 1.10%)  => src/idct_rapide.c:transposee_matrice (1,600x)
+        .           
+        .           
+   70,400 ( 0.03%)      for (uint8_t i = 0; i < 8; i++) {
+  563,200 ( 0.26%)          for (uint8_t j = 0; j < 8; j++) {
+5,215,686 ( 2.38%)              *bloc_dequantif_double[i][j] = CLAMP(*bloc_dequantif_double[i][j] + 128);
+2,355,200 ( 1.08%)              *out_matrice[i][j] = (uint8_t) round(*bloc_dequantif_double[i][j]);
+2,351,181 ( 1.07%)  => ???:0x0000000000109240 (102,400x)
+        .                   }
+        .               }
+        .           
+   70,400 ( 0.03%)      for (uint8_t i = 0; i < 8; i++) {
+  563,200 ( 0.26%)          for (uint8_t j = 0; j < 8; j++) {
+1,126,400 ( 0.51%)              free(bloc_dequantif_double[i][j]);
+10,820,800 ( 4.94%)  => ???:0x0000000000109230 (102,400x)
+        .                   }
+   89,600 ( 0.04%)          free(bloc_dequantif_double[i]);
+1,211,200 ( 0.55%)  => ???:0x0000000000109230 (12,800x)
+        .               }
+    4,800 ( 0.00%)      free(bloc_dequantif_double);
+  172,800 ( 0.08%)  => ???:0x0000000000109230 (1,600x)
+    6,400 ( 0.00%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/huffman_decodage.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 2 ----------------------------------------
+        .           #include "../include/bitstream.h"
+        .           
+        .           #include <stdlib.h>
+        .           #include <stdio.h>
+        .           #include <stdbool.h>
+        .           #include <stdint.h>
+        .           
+        .           // Création d’un nœud Huffman
+      912 ( 0.00%)  static table_huffman_decode_t* creer_noeud(enum node_type type, int8_t val) {
+    3,078 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (114x)
+        .               
+      342 ( 0.00%)      table_huffman_decode_t *node = malloc(sizeof(table_huffman_decode_t));
+   21,129 ( 0.01%)  => ???:0x00000000001093a0 (114x)
+      228 ( 0.00%)      if (!node) return NULL;
+        .           
+      342 ( 0.00%)      node->type = type;
+      228 ( 0.00%)      if (type == NODE) {
+      228 ( 0.00%)          node->u.node.left = NULL;
+      342 ( 0.00%)          node->u.node.right = NULL;
+        .               } else {
+        .                   node->u.val = val;
+        .               }
+      114 ( 0.00%)      return node;
+      228 ( 0.00%)  }
+        .           
+      627 ( 0.00%)  static void inserer_code(table_huffman_decode_t *racine, uint16_t code, uint8_t taille, int8_t symbole) {
+    1,539 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (57x)
+      114 ( 0.00%)      table_huffman_decode_t *courant = racine;
+    1,758 ( 0.00%)      for (int i = taille - 1; i >= 0; i--) {
+    3,304 ( 0.00%)          uint8_t bit = (code >> i) & 1; // Récuperation du bit i
+      944 ( 0.00%)          if (bit == 0) {
+      400 ( 0.00%)              if (!courant->u.node.left)
+      285 ( 0.00%)                  courant->u.node.left = creer_noeud(NODE, 0);
+   13,546 ( 0.01%)  => src/huffman_decodage.c:creer_noeud (57x)
+      400 ( 0.00%)              courant = courant->u.node.left;
+        .                   } else {
+    1,488 ( 0.00%)              if (!courant->u.node.right)
+      275 ( 0.00%)                  courant->u.node.right = creer_noeud(NODE, 0);
+   13,072 ( 0.01%)  => src/huffman_decodage.c:creer_noeud (55x)
+    1,116 ( 0.00%)              courant = courant->u.node.right;
+        .                   }
+        .               }
+        .           
+      114 ( 0.00%)      if (taille <= 16) {
+      399 ( 0.00%)          uint16_t masque = (1 << taille) - 1; // 1 * taille
+      171 ( 0.00%)          if (code == masque) {
+        .                       fprintf(stderr, "Erreur : insertion d’un code Huffman composé uniquement de 1 (%u bits)\n", taille);
+        .                           }
+        .               } // jamais de 11111..
+        .           
+        .               // Here we are at a LEAF
+      114 ( 0.00%)      courant->type = LEAF;
+      171 ( 0.00%)      courant->u.val = symbole;
+      171 ( 0.00%)  }
+        .           
+        .           
+       14 ( 0.00%)  table_huffman_decode_t* construire_table_depuis_Li_symboles(uint8_t Li[16], uint8_t* symboles) {
+       54 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (2x)
+        8 ( 0.00%)      table_huffman_decode_t *racine = creer_noeud(NODE, 0);
+      553 ( 0.00%)  => src/huffman_decodage.c:creer_noeud (2x)
+        4 ( 0.00%)      if (!racine) return NULL;
+        .           
+        2 ( 0.00%)      uint16_t code = 0;
+        2 ( 0.00%)      int index = 0;
+      104 ( 0.00%)      for (int i = 0; i < 16; i++) {
+      192 ( 0.00%)          uint8_t nb_codes = Li[i];
+      388 ( 0.00%)          for (int j = 0; j < nb_codes; j++) {
+      855 ( 0.00%)              inserer_code(racine, code, i + 1, symboles[index++]);
+   40,008 ( 0.02%)  => src/huffman_decodage.c:inserer_code (57x)
+      171 ( 0.00%)              code++;
+        .                   }
+       32 ( 0.00%)          code <<= 1; // On ajoute un bit pour les codes suivants
+        .               }
+        .           
+        2 ( 0.00%)      return racine;
+        4 ( 0.00%)  }
+        .           
+        .           // Décode un symbole Huffman à partir du flux
+  438,810 ( 0.20%)  int8_t decoder_valeur_huffman(table_huffman_decode_t *table, struct bitstream *stream) {
+1,184,787 ( 0.54%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (43,881x)
+  175,524 ( 0.08%)      if (!table || !stream) return -1; // Erreur table ou flux NULL
+        .           
+        .               uint32_t bit; // Variable pour stocker le bit lu
+1,153,578 ( 0.53%)      while (table && table->type == NODE) { // Tant que on est pas à une LEAF
+1,187,056 ( 0.54%)          if (read_bitstream(stream, 1, &bit, false) != 1) return -1; // Erreur de lecture
+16,153,888 ( 7.37%)  => /home/hanini/Projet_JPEG/team11/src/bitstream.c:read_bitstream (148,382x)
+1,112,474 ( 0.51%)          table = (bit & 1) ? table->u.node.right : table->u.node.left;
+        .               }
+        .           
+  219,405 ( 0.10%)      return table ? table->u.val : -1; // Retourne la valeur du symbole si trouvé, sinon -1
+  219,405 ( 0.10%)  }
+        .           
+        .           
+        .           
+        .           // Libère récursivement l’arbre Huffman
+        .           // Utilisé dans extraire_bloc.c
+      696 ( 0.00%)  void liberer_table_huffman(table_huffman_decode_t *table) {
+       54 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (2x)
+      234 ( 0.00%)      if (!table) return;
+      456 ( 0.00%)      if (table->type == NODE) {
+      228 ( 0.00%)          liberer_table_huffman(table->u.node.left);
+      871 ( 0.00%)  => src/huffman_decodage.c:liberer_table_huffman'2 (2x)
+      228 ( 0.00%)          liberer_table_huffman(table->u.node.right);
+   16,632 ( 0.01%)  => src/huffman_decodage.c:liberer_table_huffman'2 (2x)
+        .               }
+      456 ( 0.00%)      free(table);
+      216 ( 0.00%)  => ???:0x0000000000109230 (2x)
+      232 ( 0.00%)  }
+        .           
+        .           
+        .           // Récupère la vraie valeur signée à partir de sa catégorie et du bitstream
+  465,476 ( 0.21%)  int16_t lire_valeur_reelle(uint8_t taille, struct bitstream *stream) {
+1,142,532 ( 0.52%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (42,316x)
+   84,798 ( 0.04%)      if (taille == 0) return 0;
+        .               uint32_t bits;
+  337,864 ( 0.15%)      if (read_bitstream(stream, taille, &bits, false) == -1) {
+6,327,452 ( 2.89%)  => /home/hanini/Projet_JPEG/team11/src/bitstream.c:read_bitstream (42,233x)
+        .                   fprintf(stderr, "Erreur lors de la lecture du bitstream\n");
+        .                   return 0;
+        .               }
+        .               // MSB
+  295,631 ( 0.13%)      uint32_t msb = 1u << (taille - 1);
+  168,932 ( 0.08%)      if ((bits & msb) == 0) {
+        .                   // valeur négative
+  254,316 ( 0.12%)          return (int16_t)(bits - (1u << taille) + 1);
+        .               } else {
+        .                   // valeur positive
+   21,040 ( 0.01%)          return (int16_t)bits;
+        .               }
+  211,580 ( 0.10%)  }
+        .           
+        .           // Décode un bloc JPEG (DC + AC) dans un vecteur ZigZag
+        .           void decoder_bloc(float vecteur[64],
+        .                             table_huffman_decode_t *arbre_dc,
+        .                             table_huffman_decode_t *arbre_ac,
+        .                             struct bitstream *stream,
+        .                             int16_t *dernier_DC)
+   16,000 ( 0.01%)  {
+   43,200 ( 0.02%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1,600x)
+        .               // 1) DC
+    9,600 ( 0.00%)      int8_t cat_dc = decoder_valeur_huffman(arbre_dc, stream); // catégorie magnitude entre 0 et 11 = m
+  726,762 ( 0.33%)  => src/huffman_decodage.c:decoder_valeur_huffman (1,600x)
+        .           
+   11,200 ( 0.01%)      int16_t diff_dc = lire_valeur_reelle((uint8_t)cat_dc, stream); // lit les m bit suivant
+  454,014 ( 0.21%)  => src/huffman_decodage.c:lire_valeur_reelle (1,600x)
+    9,600 ( 0.00%)      int16_t val_dc = *dernier_DC + diff_dc;
+    4,800 ( 0.00%)      *dernier_DC = val_dc;
+    8,000 ( 0.00%)      vecteur[0] = (float)val_dc;
+        .           
+        .               // 2) AC
+    1,600 ( 0.00%)      int index = 1;
+   86,332 ( 0.04%)      while (index < 64) {
+  253,686 ( 0.12%)          int8_t symbole = decoder_valeur_huffman(arbre_ac, stream);
+21,118,165 ( 9.64%)  => src/huffman_decodage.c:decoder_valeur_huffman (42,281x)
+        .           
+   84,562 ( 0.04%)          if (symbole == 0x00) {
+        .                       // End Of Block : remplir le reste de zéros
+   67,389 ( 0.03%)              while (index < 64) {
+  282,798 ( 0.13%)                  vecteur[index++] = 0.0f;
+        .                       }
+    1,515 ( 0.00%)              break;
+        .                   }
+   81,532 ( 0.04%)          if (symbole == (int8_t)0xF0) {
+        .                       // RLE : 16 zéros
+    4,200 ( 0.00%)              for (int k = 0; k < 16 && index < 64; k++) {
+    7,200 ( 0.00%)                  vecteur[index++] = 0.0f;
+        .                       }
+       50 ( 0.00%)              continue;
+        .                   }
+        .                   // cas general
+        .                   // Run-length et magnitude
+        .                   // RLE : 4 bit haut(combien de zeros) + 4 bit bas (magnitude:combien de bit a lire pour le cof !=0)
+        .                   
+  122,148 ( 0.06%)          uint8_t run_zeros = (symbole >> 4) & 0x0F;
+  122,148 ( 0.06%)          uint8_t mag       = symbole & 0x0F;
+        .                   
+        .                   // insérer les zéros
+  370,752 ( 0.17%)          for (int k = 0; k < run_zeros && index < 64; k++) {
+  250,758 ( 0.11%)              vecteur[index++] = 0.0f;
+        .                   }
+        .                   
+        .                   // lire la valeur si mag>0
+  162,864 ( 0.07%)          if (mag > 0 && index < 64) {
+  244,296 ( 0.11%)              int16_t val = lire_valeur_reelle(mag, stream);
+8,855,607 ( 4.04%)  => src/huffman_decodage.c:lire_valeur_reelle (40,716x)
+  488,592 ( 0.22%)              vecteur[index++] = (float)val;
+        .                   }
+        .           
+        .               }
+    4,885 ( 0.00%)  }
+--------------------------------------------------------------------------------
+The following files chosen for auto-annotation could not be found:
+--------------------------------------------------------------------------------
+  ./gmon/../sysdeps/x86_64/_mcount.S
+  ./gmon/./gmon/mcount.c
+  ./libio/./libio/fputc.c
+  ./libio/./libio/getc.c
+  ./malloc/./malloc/arena.c
+  ./malloc/./malloc/malloc.c
+  ./math/../sysdeps/ieee754/dbl-64/s_round.c
+  ./math/../sysdeps/ieee754/dbl-64/s_sin.c
+  ./math/../sysdeps/x86/fpu/fenv_private.h
+
+--------------------------------------------------------------------------------
+Ir                   
+--------------------------------------------------------------------------------
+106,829,375 (48.76%)  events annotated
+
